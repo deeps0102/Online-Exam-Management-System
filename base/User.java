@@ -1,49 +1,41 @@
+import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+
 public class User {
-   private int userId;
-   private String firstName,lastName,userName,email,password,type,contact,city,address;
+   private int userid;
+   private String userName,email,password,usertype,mobNo,gender;
+   private Date dob, createddt, modifieddt;
 
    public User(){
        
    }
-    public User(int userId, String firstName, String lastName, String userName, String email, String password, String type, String contact, String city, String address) {
+    public User(int userid, String userName, String email, String password, String usertype, String mobNo, String gender, Date dob, Date createddt, Date modifieddt) {
         this.setUserId(userId);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
         this.setUserName(userName);
         this.setEmail(email);
         this.setPassword(password);
-        this.setType(type);
-        this.setContact(contact);
-        this.setCity(city);
-        this.setAddress(address);
+        this.setType(usertype);
+        this.setContact(mobNo);
+        this.setgender(gender);
+        this.setdob(dob);
+        this.setcreateddt(createddt);
+        this.setmodifieddt(modifieddt);
     }
 
     public int getUserId() {
-        return userId;
+        return this.userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserId(int userid) {
+        this.userid = userid;
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -51,7 +43,7 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -59,7 +51,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -67,36 +59,42 @@ public class User {
     }
 
     public String getType() {
-        return type;
+        return this.usertype;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String usertype) {
+        this.usertype = usertype;
     }
 
     public String getContact() {
-        return contact;
+        return this.mobNo;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setContact(String mobNo) {
+        this.mobNo = mobNo;
     }
 
-    public String getCity() {
-        return city;
+    public String getgender() {
+        return this.gender;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setgender(String gender) {
+        this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public Date getcreateddt() {
+        return this.createddt;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setcreateddt(Date createddt) {
+        this.createddt = createddt;
     }
 
-   
+    public Date getmodifieddt() {
+        return this.modifieddt;
+    }
+
+    public void setmodifieddt(Date modifieddt) {
+        this.modifieddt = modifieddt;
+    }
 }

@@ -1,6 +1,8 @@
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
  
 class Database {
@@ -22,9 +24,11 @@ class Database {
             con1.close();
             con2 = DriverManager.getConnection(url2, user, password);
             stmt=con2.createStatement();
-            stmt.executeUpdate("exam_system");
-            stmt.executeUpdate("create table answers(answer_id int(11) primary key,question varchar(45), answer varchar(45), correct_answer varchar(45), status varchar(45), foreign key(exam_id) refrences exams(exam_id)");
-            stmt.executeUpdate("create table courses(course_name varchar(25), total_marks int(11), time varchar(45))");
+            stmt.executeUpdate("use exam_system");
+            stmt.executeUpdate("create table exams(examid int primary key, examName varchar(10), examDate Date, createdby varchar(30), modifiedby varchar(30), createddt datetime, modifieddt datetime)");
+            stmt.executeUpdate("create table users(userid int primary key, userName varchar(30), emailid varchar(30), password varchar(20), mobNo varchar(11), dob Date, gender varchar(10), createddt datetime, modifieddt datetime, usertype varchar(10))");
+            stmt.executeUpdate("create table results(resultid int primary key, userName varchar(30), examName varchar(10), totmarks int, userstatus varchar(10), examDate datetime, foreign key(examDate) references exams(examDate), foreign key(userName) references users(userName), foreign key(examName) references exams(examName))");
+            stmt.executeUpdate("create table questions(queid int primary key, examName varchar(10), question varchar(100), opt1 varchar(50), opt2 varchar(50), opt3 varchar(50), opt4 varchar(50), ans varchar(50), createdby varchar(30), modifiedby varchar(30), createddt datetime, modifieddt datetime, foreign key(examName) references exams(examName))");
             con2.close();
         }
         catch(Exception e){
