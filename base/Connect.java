@@ -16,7 +16,7 @@ class Connect {
 
     //checks if user already has an account or not
     //true for already having an account and vice-versa
-    public static boolean check_registered(String emailid, String password)
+    public static boolean check_registered(int user_id, String password)
     {
         String realpass = new String();
         boolean f=false;
@@ -24,7 +24,7 @@ class Connect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="select password from users where emailid="+emailid;
+            String query="select password from users where userid="+user_id;
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next())
             {
