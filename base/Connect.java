@@ -16,19 +16,21 @@ class Connect {
 
     //checks if user already has an account or not
     //true for already having an account and vice-versa
-    public static boolean check_registered(int user_id, String password)
+    public static int check_registered(int user_id, String password)
     {
         String realpass = new String();
-        boolean f=false;
+        String type = new String();
+        boolean f=-1;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="select password from users where userid="+user_id;
+            String query="select password,usertype from users where userid="+user_id;
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next())
             {
                 realpass=rs.getString(1);
+                type=rs.getString(2);
             }
             con.close();
         }
@@ -37,7 +39,14 @@ class Connect {
         }
         if(realpass.equals(password))
         {
-            f=true;
+            if(type.equals("Admin"))
+            {
+                f=0;
+            }
+            else if(type.equals("Student"))
+            {
+                f=1;
+            }
         }
         return f;
     }
@@ -56,5 +65,17 @@ class Connect {
         catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    //admin can add exam through this
+    public static void add_exam(Exam new_exam)
+    {
+        //
+    }
+
+    //admin can add question in any particular using through this
+    public static void add_question(Question new_que)
+    {
+        //
     }
 }
