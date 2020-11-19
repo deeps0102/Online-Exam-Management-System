@@ -7,13 +7,12 @@ import java.time.LocalDate;
 
 public class Questions
 {
-    private int queid;
-    private String question, opt1, opt2, opt3, opt4, ans, examName, createdby, modifiedby;
+    private String queid, question, opt1, opt2, opt3, opt4, ans, examName, createdby, modifiedby;
     private Date createddt, modifieddt;
 
     public Questions() {}
 
-    public Questions(int queid, String question, String opt1, String opt2, String opt3, String opt4, String ans, String examName, String createdby, String modifiedby, Date createddt, Date modifieddt) 
+    public Questions(String queid, String question, String opt1, String opt2, String opt3, String opt4, String ans, String examName, String createdby, String modifiedby, Date createddt, Date modifieddt) 
     {
         this.setQuestionId(queid);
         this.setQuestion(question);
@@ -29,11 +28,11 @@ public class Questions
         this.setmodifieddt(modifieddt);
     }
 
-    public int getQuestionId() {
+    public String getQuestionId() {
         return this.queid;
     }
 
-    public void setQuestionId(int queid) {
+    public void setQuestionId(String queid) {
         this.queid = quesid;
     }
 

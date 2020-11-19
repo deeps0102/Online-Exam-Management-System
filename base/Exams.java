@@ -5,31 +5,21 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
-public class Exams {
-    
-    private int examid;
+public class Exams 
+{
     private String examName, createdby, modifiedby;
     private Date examDate, createddt, modifieddt;
 
     public Exams() {}
 
-    public Exams(int examid, String examName, Date examDate, String createdby, String modifiedby, Date createddt, Date modifieddt) 
+    public Exams(String examName, Date examDate, String createdby, String modifiedby, Date createddt, Date modifieddt) 
     {
-        this.setexamId(examid);
         this.setexamName(examName);
         this.setexamDate(examDate);
         this.setcreatedby(createdby);
         this.setmodifiedby(modifiedby);
         this.setcreateddt(createddt);
         this.setmodifieddt(modifieddt);
-    }
-
-    public int getexamid() {
-        return this.examid;
-    }
-
-    public void setexamid(int examid) {
-        this.examid = examid;
     }
 
     public String getexamName() {

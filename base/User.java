@@ -5,18 +5,18 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
-public class User {
-   private int userid;
-   private String userName,email,password,usertype,mobNo,gender,dob;
-   private Date createddt, modifieddt;
+public class User 
+{
+    private String userid,userName,emailid,password,usertype,mobNo,gender,dob;
+    private Date createddt, modifieddt;
 
-   public User(){
-       
-   }
-    public User(int userid, String userName, String email, String password, String usertype, String mobNo, String gender, String dob, Date createddt, Date modifieddt) {
+    public User(){}
+
+    public User(String userid, String userName, String emailid, String password, String usertype, String mobNo, String gender, String dob, Date createddt, Date modifieddt)
+    {
         this.setUserId(userId);
         this.setUserName(userName);
-        this.setEmail(email);
+        this.setEmail(emailid);
         this.setPassword(password);
         this.setType(usertype);
         this.setContact(mobNo);
@@ -26,11 +26,11 @@ public class User {
         this.setmodifieddt(modifieddt);
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return this.userid;
     }
 
-    public void setUserId(int userid) {
+    public void setUserId(String userid) {
         this.userid = userid;
     }
 
@@ -43,11 +43,11 @@ public class User {
     }
 
     public String getEmail() {
-        return this.email;
+        return this.emailid;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.emailid = emailid;
     }
 
     public String getPassword() {

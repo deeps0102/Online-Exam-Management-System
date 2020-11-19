@@ -7,12 +7,12 @@ import java.time.LocalDate;
 
 public class Results {
     String userName, examName, userstatus;
-    int resultid, totmarks;
+    int totmarks;
     Date examDate;
 
     public Results() {}
 
-    public Results(String userName, String examName, String userstatus, int resultid, int totmarks, Date examDate) {
+    public Results(String userName, String examName, String userstatus, int totmarks, Date examDate) {
         this.setUserName(userName);
         this.setexamName(examName);
         this.setuserstatus(userstatus);
@@ -51,14 +51,6 @@ public class Results {
 
     public void setexamDate(Date examDate) {
         this.examDate = examDate;
-    }
-
-    public Date getresultid() {
-        return this.resultid;
-    }
-
-    public void setresultid(Date resultid) {
-        this.resultid = resultid;
     }
 
     public Date getotmarks() {
