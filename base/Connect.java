@@ -254,4 +254,23 @@ class Connect {
         }
         return ques;
     }
+
+    public static void updatemarks(String userid, String examName, int marks)
+    {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement stmt=con.createStatement();
+            String temp = new String();
+            temp=Integer.toString(marks);
+
+            String query="update results set totmarks='"+temp+"' where userid='"+userid+"' and examName='"+examName+"'";
+            
+            stmt.executeUpdate(query);
+            con.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
