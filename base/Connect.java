@@ -100,24 +100,31 @@ class Connect {
     }
 
     //returns an array list of result of a particular student
-    public static ArrayList<Results> get_result(String username) 
+    public static ArrayList<ArrayList<String>> get_result(String userid) 
     {
-        ArrayList<Results> arr = new ArrayList<Results>();
+        ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
+        String username = new String();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="select * from results where userName='"+username+"'";
-            ResultSet rs = stmt.executeQuery(query);
-            while(rs.next())
+            String query = "select userName from users where userid='"+userid+"'";
+            ResultSet rs1 = stmt.executeQuery(query);
+            while(rs1.next())
             {
-                Results obj = new Results();
-                obj.examName=rs.getString(1);
-                obj.userName=rs.getString(2);
-                obj.totmarks=rs.getInt(3);
-                obj.userstatus=rs.getString(4);
-                obj.examDate=rs.getDate(5);
-                arr.add(obj);
+                username = rs1.getString(1);
+            }
+            query="select * from results where userName='"+username+"'";
+            ResultSet rs2 = stmt.executeQuery(query);
+            while(rs2.next())
+            {
+                ArrayList<String> temp = new ArrayList<String>();
+                temp.add(rs2.getString(1));
+                temp.add(rs2.getString(2));
+                temp.add(rs2.getInt(3));
+                temp.add(rs2.getString(4));
+                temp.add(rs2.getDate(5).toString());
+                arr.add(temp);
             }
             con.close();
         }
