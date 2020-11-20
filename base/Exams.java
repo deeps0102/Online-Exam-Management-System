@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 public class Exams 
 {
-    private String examName, createdby, modifiedby;
-    private Date examDate, createddt, modifieddt;
+    public String examName, createdby, modifiedby;
+    public Date examDate, createddt, modifieddt;
 
     public Exams() {}
 

@@ -6,18 +6,16 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 
 public class Results {
-    String userName, examName, userstatus;
-    int totmarks;
+    String userName, examName, userstatus,totmarks;
     Date examDate;
 
     public Results() {}
 
-    public Results(String userName, String examName, String userstatus, int totmarks, Date examDate) {
+    public Results(String userName, String examName, String userstatus, String totmarks, Date examDate) {
         this.setUserName(userName);
         this.setexamName(examName);
         this.setuserstatus(userstatus);
         this.setexamDate(examDate);
-        this.setresultid(resultid);
         this.settotmarks(totmarks);
     }
 
@@ -53,11 +51,11 @@ public class Results {
         this.examDate = examDate;
     }
 
-    public Date getotmarks() {
+    public String getotmarks() {
         return this.totmarks;
     }
 
-    public void settotmarks(Date examDate) {
+    public void settotmarks(String totmarks) {
         this.totmarks = totmarks;
     }
 }

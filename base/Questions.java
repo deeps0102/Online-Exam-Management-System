@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 public class Questions
 {
-    private String queid, question, opt1, opt2, opt3, opt4, ans, examName, createdby, modifiedby;
-    private Date createddt, modifieddt;
+    public String queid, question, opt1, opt2, opt3, opt4, ans, examName, createdby, modifiedby;
+    public Date createddt, modifieddt;
 
     public Questions() {}
 
@@ -33,7 +33,7 @@ public class Questions
     }
 
     public void setQuestionId(String queid) {
-        this.queid = quesid;
+        this.queid = queid;
     }
 
     public String getQuestion() {

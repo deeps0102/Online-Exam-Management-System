@@ -20,7 +20,7 @@ class Connect {
     {
         String realpass = new String();
         String type = new String();
-        boolean f=-1;
+        int f=-1;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
@@ -68,7 +68,7 @@ class Connect {
     }
 
     //admin can add exam through this
-    public static void add_exam(Exam new_exam)
+    public static void add_exam(Exams new_exam)
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -84,13 +84,13 @@ class Connect {
     }
 
     //admin can add question in any particular using through this
-    public static void add_question(Question new_que)
+    public static void add_question(Questions new_que)
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_exam.opt1+"', '"+new_exam.opt2+"', '"+new_exam.opt3+"', '"+new_exam.opt4+"', '"+new_exam.ans+"', '"+new_exam.createdby+"', '"+new_exam.modifiedby+"', '"+new_exam.createddt.toString()+"', '"+new_exam.modifieddt.toString()+"')";
+            String query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_que.opt1+"', '"+new_que.opt2+"', '"+new_que.opt3+"', '"+new_que.opt4+"', '"+new_que.ans+"', '"+new_que.createdby+"', '"+new_que.modifiedby+"', '"+new_que.createddt.toString()+"', '"+new_que.modifieddt.toString()+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -121,7 +121,7 @@ class Connect {
                 ArrayList<String> temp = new ArrayList<String>();
                 temp.add(rs2.getString(1));
                 temp.add(rs2.getString(2));
-                temp.add(rs2.getInt(3));
+                temp.add(rs2.getString(3));
                 temp.add(rs2.getString(4));
                 temp.add(rs2.getDate(5).toString());
                 arr.add(temp);
@@ -221,6 +221,37 @@ class Connect {
         catch(Exception e){
             e.printStackTrace();
         }
-        return arr;
+    }
+
+    public static String[][] allquestions(String examName)
+    {
+        int questions = ques_count(examName);
+        String[][]ques = new String[7][questions];
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement stmt=con.createStatement();
+            String query="select queid,question,opt1,opt2,opt3,opt4,ans from questions where examName='"+examName+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            int i=0;
+            while(rs.next())
+            {
+                String[] arr = new String[7];
+                arr[0]=rs.getString(1);
+                arr[1]=rs.getString(2);
+                arr[2]=rs.getString(3);
+                arr[3]=rs.getString(4);
+                arr[4]=rs.getString(5);
+                arr[5]=rs.getString(6);
+                arr[6]=rs.getString(7);
+                ques[i]=arr;
+                i=i+1;
+            }
+            con.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return ques;
     }
 }

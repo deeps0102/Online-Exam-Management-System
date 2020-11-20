@@ -7,14 +7,14 @@ import java.time.LocalDate;
 
 public class User 
 {
-    private String userid,userName,emailid,password,usertype,mobNo,gender,dob;
-    private Date createddt, modifieddt;
+    public String userid,userName,emailid,password,usertype,mobNo,gender,dob;
+    public Date createddt, modifieddt;
 
     public User(){}
 
     public User(String userid, String userName, String emailid, String password, String usertype, String mobNo, String gender, String dob, Date createddt, Date modifieddt)
     {
-        this.setUserId(userId);
+        this.setUserId(userid);
         this.setUserName(userName);
         this.setEmail(emailid);
         this.setPassword(password);
