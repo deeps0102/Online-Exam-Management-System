@@ -23,9 +23,7 @@ public class Questions
         this.setAns(ans);
         this.setexamName(examName);
         this.setcreatedby(createdby);
-        this.setmodifiedby(modifiedby);
         this.setcreateddt(createddt);
-        this.setmodifieddt(modifieddt);
     }
 
     public String getQuestionId() {
@@ -92,20 +90,12 @@ public class Questions
         this.examName = examName;
     }
     
-    public Date getcreateddt() {
+    public String getcreateddt() {
         return this.createddt;
     }
 
-    public void setcreateddt(Date createddt) {
+    public void setcreateddt(String createddt) {
         this.createddt = createddt;
-    }
-
-    public Date getmodifieddt() {
-        return this.modifieddt;
-    }
-
-    public void setmodifieddt(Date modifieddt) {
-        this.modifieddt = modifieddt;
     }
     
     public String getcreatedby() {
@@ -114,13 +104,5 @@ public class Questions
 
     public void setcreatedby(String createdby) {
         this.createdby = createdby;
-    }
-
-    public String getmodifiedby() {
-        return this.modifiedby;
-    }
-
-    public void setmodifiedby(String modifiedby) {
-        this.modifiedby = modifiedby;
     }
 }

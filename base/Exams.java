@@ -7,19 +7,17 @@ import java.time.LocalDate;
 
 public class Exams 
 {
-    public String examName, createdby, modifiedby;
-    public Date examDate, createddt, modifieddt;
+    public String examName, createdby, createddt;
+    public Date examDate;
 
     public Exams() {}
 
-    public Exams(String examName, Date examDate, String createdby, String modifiedby, Date createddt, Date modifieddt) 
+    public Exams(String examName, Date examDate, String createdby, String modifiedby, String createddt) 
     {
         this.setexamName(examName);
         this.setexamDate(examDate);
         this.setcreatedby(createdby);
-        this.setmodifiedby(modifiedby);
         this.setcreateddt(createddt);
-        this.setmodifieddt(modifieddt);
     }
 
     public String getexamName() {
@@ -42,16 +40,8 @@ public class Exams
         return this.examDate;
     }
 
-    public void setcreateddt(Date createddt) {
+    public void setcreateddt(String createddt) {
         this.createddt = createddt;
-    }
-
-    public Date getmodifieddt() {
-        return this.examDate;
-    }
-
-    public void setmodifieddt(Date modifieddt) {
-        this.modifieddt = modifieddt;
     }
     
     public String getcreatedby() {
@@ -60,13 +50,5 @@ public class Exams
 
     public void setcreatedby(String createdby) {
         this.createdby = createdby;
-    }
-
-    public String getmodifiedby() {
-        return this.modifiedby;
-    }
-
-    public void setmodifiedby(String modifiedby) {
-        this.modifiedby = modifiedby;
     }
 }

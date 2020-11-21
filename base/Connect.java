@@ -16,7 +16,7 @@ class Connect {
 
     //checks if user already has an account or not
     //-1 for not registered, 0->registered student and 1->registered admin
-    public static int check_registered(String user_id, String password)
+    public static int check_registered(String user_id, String passw)
     {
         String realpass = new String();
         String type = new String();
@@ -37,7 +37,7 @@ class Connect {
         catch(Exception e){
             e.printStackTrace();
         }
-        if(realpass.equals(password))
+        if(realpass.equals(passw))
         {
             if(type.equals("Admin"))
             {
@@ -58,7 +58,7 @@ class Connect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into users values('"+new_user.userid+"', '"+new_user.userName+"', '"+new_user.emailid+"', '"+new_user.password+"', '"+new_user.mobNo+"', '"+new_user.dob+"', '"+new_user.gender+"', '"+new_user.createddt.toString()+"', '"+new_user.modifieddt.toString()+"', '"+new_user.usertype+"')";
+            String query="insert into users values('"+new_user.userid+"', '"+new_user.userName+"', '"+new_user.emailid+"', '"+new_user.password+"', '"+new_user.mobNo+"', '"+new_user.dob+"', '"+new_user.gender+"', '"+new_user.createddt+"', '"+new_user.usertype+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -265,7 +265,7 @@ class Connect {
             temp=Integer.toString(marks);
 
             String query="update results set totmarks='"+temp+"' where userid='"+userid+"' and examName='"+examName+"'";
-            
+
             stmt.executeUpdate(query);
             con.close();
         }
@@ -273,4 +273,6 @@ class Connect {
             e.printStackTrace();
         }
     }
+
+    
 }

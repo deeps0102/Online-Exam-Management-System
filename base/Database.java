@@ -25,12 +25,12 @@ class Database {
             con2 = DriverManager.getConnection(url2, user, password);
             stmt=con2.createStatement();
             stmt.executeUpdate("use exam_system");
-            stmt.executeUpdate("create table exams(examName varchar(30) primary key, examDate datetime, createdby varchar(30), modifiedby varchar(30), createddt datetime, modifieddt datetime)");
-            stmt.executeUpdate("create table users(userid varchar(30) primary key, userName varchar(30), emailid varchar(30), password varchar(30), mobNo varchar(11), dob varchar(11), gender varchar(10), createddt datetime, modifieddt datetime, usertype varchar(10))");
+            stmt.executeUpdate("create table exams(examName varchar(30) primary key, examDate datetime, createdby varchar(30), createddt datetime)");
+            stmt.executeUpdate("create table users(userid varchar(30) primary key, userName varchar(30), emailid varchar(30), password varchar(30), mobNo varchar(11), dob varchar(11), gender varchar(10), createddt datetime, usertype varchar(10))");
             stmt.executeUpdate("create table results(examName varchar(30), userid varchar(30), totmarks varchar(5), userstatus varchar(30), examDate datetime, foreign key(examDate) references exams(examDate), foreign key(userid) references users(userid), foreign key(examName) references exams(examName))");
-            stmt.executeUpdate("create table questions(queid varchar(30) primary key, examName varchar(10), question varchar(100), opt1 varchar(50), opt2 varchar(50), opt3 varchar(50), opt4 varchar(50), ans varchar(50), createdby varchar(30), modifiedby varchar(30), createddt datetime, modifieddt datetime, foreign key(examName) references exams(examName))");
-            stmt.executeUpdate("insert into users values('1', 'X A', 'abc@gmail.com', 'abcxyz', '8320331881', '05-03-2002', 'Male', '2020-11-11 13:23:44', '2020-11-11 13:23:44', 'Student')");
-            stmt.executeUpdate("insert into users values('2', 'Y B', 'xyz@gmail.com', 'xxyyzz', '8000531100', '16-09-2001', 'Female', '2020-11-11 13:23:44', '2020-11-11 13:23:44', 'Admin')");
+            stmt.executeUpdate("create table questions(queid varchar(30) primary key, examName varchar(10), question varchar(100), opt1 varchar(50), opt2 varchar(50), opt3 varchar(50), opt4 varchar(50), ans varchar(50), createdby varchar(30), createddt datetime, foreign key(examName) references exams(examName))");
+            stmt.executeUpdate("insert into users values('1', 'X A', 'abc@gmail.com', 'abcxyz', '8320331881', '05-03-2002', 'Male', '2020-11-11 13:23:44', 'Student')");
+            stmt.executeUpdate("insert into users values('2', 'Y B', 'xyz@gmail.com', 'xxyyzz', '8000531100', '16-09-2001', 'Female', '2020-11-11 13:23:44', 'Admin')");
             con2.close();
         }
         catch(Exception e){
