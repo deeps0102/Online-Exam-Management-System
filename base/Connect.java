@@ -68,13 +68,13 @@ class Connect {
     }
 
     //admin can add exam through this
-    public static void add_exam(Exams new_exam)
+    public static void add_exam(String userid, Exams new_exam)
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into exams values('"+new_exam.examName+"', '"+new_exam.examDate+"', '"+new_exam.createdby+"', '"+new_exam.modifiedby+"', '"+new_exam.createddt.toString()+"', '"+new_exam.modifieddt.toString()+"')";
+            String query="insert into exams values('"+new_exam.examName+"', '"+new_exam.examDate+"', '"+new_exam.createdby+"', '"+new_exam.createddt.toString()+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -84,13 +84,13 @@ class Connect {
     }
 
     //admin can add question in any particular using through this
-    public static void add_question(Questions new_que)
+    public static void add_question(String userid, Questions new_que)
     {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_que.opt1+"', '"+new_que.opt2+"', '"+new_que.opt3+"', '"+new_que.opt4+"', '"+new_que.ans+"', '"+new_que.createdby+"', '"+new_que.modifiedby+"', '"+new_que.createddt.toString()+"', '"+new_que.modifieddt.toString()+"')";
+            String query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_que.opt1+"', '"+new_que.opt2+"', '"+new_que.opt3+"', '"+new_que.opt4+"', '"+new_que.ans+"', '"+new_que.createdby+"', '"+new_que.createddt.toString()+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -214,7 +214,7 @@ class Connect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="update users set userName='"+obj.userName+"', emailid='"+obj.emailid+"', password='"+obj.password+"', mobNo='"+obj.mobNo+"', dob='"+obj.dob+"', gender='"+obj.gender+"', modifieddt='"+obj.modifieddt+"' where userid='"+obj.userid+"'";
+            String query="update users set userName='"+obj.userName+"', emailid='"+obj.emailid+"', password='"+obj.password+"', mobNo='"+obj.mobNo+"', dob='"+obj.dob+"', gender='"+obj.gender+"' where userid='"+obj.userid+"'";
             stmt.executeUpdate(query);
             con.close();
         }
