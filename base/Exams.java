@@ -1,3 +1,4 @@
+Package base;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +13,7 @@ public class Exams
 
     public Exams() {}
 
-    public Exams(String examName, Date examDate, String createdby, String modifiedby, String createddt) 
+    public Exams(String examName, Date examDate, String createdby, String createddt) 
     {
         this.setexamName(examName);
         this.setexamDate(examDate);

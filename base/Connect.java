@@ -1,3 +1,4 @@
+Package base;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -5,6 +6,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import static java.lang.Math.abs;
+import java.text.SimpleDateFormat;
  
 class Connect {
  
@@ -74,7 +76,14 @@ class Connect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into exams values('"+new_exam.examName+"', '"+new_exam.examDate+"', '"+new_exam.createdby+"', '"+new_exam.createddt.toString()+"')";
+            String query="select userName from users where userid='"+userid+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            String usernm=new String();
+            while(rs.next())
+            {
+                usernm=rs.getString(1);
+            }
+            query="insert into exams values('"+new_exam.examName+"', '"+new_exam.examDate+"', '"+usernm+"', '"+new_exam.createddt+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -90,7 +99,56 @@ class Connect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_que.opt1+"', '"+new_que.opt2+"', '"+new_que.opt3+"', '"+new_que.opt4+"', '"+new_que.ans+"', '"+new_que.createdby+"', '"+new_que.createddt.toString()+"')";
+            String query="select userName from users where userid='"+userid+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            String usernm=new String();
+            while(rs.next())
+            {
+                usernm=rs.getString(1);
+            }
+            query="insert into questions values('"+new_que.queid+"', '"+new_que.examName+"', '"+new_que.question+"', '"+new_que.opt1+"', '"+new_que.opt2+"', '"+new_que.opt3+"', '"+new_que.opt4+"', '"+new_que.ans+"', '"+usernm+"', '"+new_que.createddt+"')";
+            stmt.executeUpdate(query);
+            con.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void add_result(String userid, String examName, int marks)
+    {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement stmt=con.createStatement();
+            String temp = new String();
+            temp=Integer.toString(marks);
+            String userName=new String();
+            Date examDate = new Date();
+            String userstatus = new String();
+            String query="select userName from users where userid='"+userid+"'";
+            ResultSet rs1 = stmt.executeQuery(query);
+            while(rs1.next())
+            {
+                userName = rs1.getString(1);
+            }
+            query = "select examDate from exams where examName='"+examName+"'";
+            ResultSet rs2 = stmt.executeQuery(query);
+            while(rs2.next())
+            {
+                examDate = rs2.getDate(1);
+            }
+            int totmarks = ques_count(examName);
+            if(totmarks*0.3<marks)
+            {
+                userstatus = "Pass";
+            }
+            else
+            {
+                userstatus = "Fail";
+            }
+
+            query = "insert into results values('"+examName+"','"+userid+"','"+temp+"','"+userstatus+"','"+examDate+"')";
             stmt.executeUpdate(query);
             con.close();
         }
@@ -255,24 +313,58 @@ class Connect {
         return ques;
     }
 
-    public static void updatemarks(String userid, String examName, int marks)
+    public static User get_user(String userid)
     {
+        User obj = new User();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt=con.createStatement();
-            String temp = new String();
-            temp=Integer.toString(marks);
-
-            String query="update results set totmarks='"+temp+"' where userid='"+userid+"' and examName='"+examName+"'";
-
-            stmt.executeUpdate(query);
+            String query="select * from users where userid='"+userid+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next())
+            {
+                obj.userid=rs.getString(1);
+                obj.userName=rs.getString(2);
+                obj.emailid=rs.getString(3);
+                obj.password=rs.getString(4);
+                obj.mobNo=rs.getString(5);
+                obj.dob=rs.getString(6);
+                obj.gender=rs.getString(7);
+                obj.createddt=rs.getString(8);
+                obj.usertype=rs.getString(9);
+            }
             con.close();
         }
         catch(Exception e){
             e.printStackTrace();
         }
+        return obj;
     }
 
-    
+    public static boolean checkunique(String userid, String emailid)
+    {
+        int c1=0;
+        boolean f = true;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, password);
+            Statement stmt=con.createStatement();
+            String query="select count(userid) from users where userid='"+userid+"' or emailid='"+emailid+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next())
+            {
+                c1=rs.getInt(1);
+            }
+            if(c1>0)
+            {
+                f=false;
+            }
+            con.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return f;
+    }
 }
