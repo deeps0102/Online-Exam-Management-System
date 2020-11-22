@@ -1,49 +1,41 @@
-public class User {
-   private int userId;
-   private String firstName,lastName,userName,email,password,type,contact,city,address;
+package base;
 
-   public User(){
-       
-   }
-    public User(int userId, String firstName, String lastName, String userName, String email, String password, String type, String contact, String city, String address) {
-        this.setUserId(userId);
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
+import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+
+public class User 
+{
+    public String userid,userName,emailid,password,usertype,mobNo,gender,dob,createddt;
+
+    public User(){}
+
+    public User(String userid, String userName, String emailid, String password, String usertype, String mobNo, String gender, String dob, String createddt)
+    {
+        this.setUserId(userid);
         this.setUserName(userName);
-        this.setEmail(email);
+        this.setEmail(emailid);
         this.setPassword(password);
-        this.setType(type);
-        this.setContact(contact);
-        this.setCity(city);
-        this.setAddress(address);
+        this.setType(usertype);
+        this.setContact(mobNo);
+        this.setgender(gender);
+        this.setdob(dob);
+        this.setcreateddt(createddt);
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserId() {
+        return this.userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserId(String userid) {
+        this.userid = userid;
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -51,15 +43,15 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return this.emailid;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.emailid = email;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -67,36 +59,42 @@ public class User {
     }
 
     public String getType() {
-        return type;
+        return this.usertype;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String usertype) {
+        this.usertype = usertype;
     }
 
     public String getContact() {
-        return contact;
+        return this.mobNo;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setContact(String mobNo) {
+        this.mobNo = mobNo;
     }
 
-    public String getCity() {
-        return city;
+    public String getgender() {
+        return this.gender;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setgender(String gender) {
+        this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public String getdob() {
+        return this.dob;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setdob(String dob) {
+        this.dob = dob;
     }
 
-   
+    public String getcreateddt() {
+        return this.createddt;
+    }
+
+    public void setcreateddt(String createddt) {
+        this.createddt = createddt;
+    }
 }
