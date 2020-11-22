@@ -14,9 +14,9 @@ public class Connect {
  
     public static final String url = "jdbc:mysql://localhost:3306/exam_system";
  
-    public static final String user = "deepu";
+    public static final String user = "root";
  
-    public static final String password = "kimseokjin";
+    public static final String password = "password";
 
     //checks if user already has an account or not
     //-1 for not registered, 0->registered student and 1->registered admin
