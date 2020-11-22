@@ -15,11 +15,3 @@ public static final String password = "password";
 
 chmod +x ./run.sh
 ./run.sh
-
-Submitted By Group-5
-
-19UCS061 - Nirmay Rakesh Dhruv
-19UCS062 - Deepali Garg
-19UCS020 - Karan Kothari
-19UCS012 - Vishal Dayalani
-
