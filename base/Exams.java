@@ -1,104 +1,55 @@
-public class Exams {
-    
-    private int examId;
-    private String stdId,cName,tMarks,obtMarks,date,startTime,endTime,examTime,status;
+package base;
 
-    public Exams() {
+import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+
+public class Exams 
+{
+    public String examName, createdby, createddt,examDate;
+
+    public Exams() {}
+
+    public Exams(String examName, String examDate, String createdby, String modifiedby, String createddt) 
+    {
+        this.setexamName(examName);
+        this.setexamDate(examDate);
+        this.setcreatedby(createdby);
+        this.setcreateddt(createddt);
     }
 
-    public Exams(int examId, String stdId,String cName, String tMarks, String obtMarks, String date, String startTime, String endTime, String examTime, String status) {
-        this.setExamId(examId);
-        this.setStdId(stdId);
-        this.cName=cName;
-        this.settMarks(tMarks);
-        this.setObtMarks(obtMarks);
-        this.setDate(date);
-        this.setStartTime(startTime);
-        this.setEndTime(endTime);
-        this.setExamTime(examTime);
-        this.setStatus(status);
+    public String getexamName() {
+        return this.examName;
     }
 
-    public String getcName() {
-        return cName;
+    public void setexamName(String examName) {
+        this.examName = examName;
     }
 
-    public void setcName(String cName) {
-        this.cName = cName;
+    public String getexamDate() {
+        return this.examDate;
     }
 
-    
-
-    public int getExamId() {
-        return examId;
+    public void setexamDate(String examDate) {
+        this.examDate = examDate;
     }
 
-    public void setExamId(int examId) {
-        this.examId = examId;
+    public String getcreateddt() {
+        return this.examDate;
     }
 
-    public String getStdId() {
-        return stdId;
-    }
-
-    public void setStdId(String stdId) {
-        this.stdId = stdId;
-    }
-
-    public String gettMarks() {
-        return tMarks;
-    }
-
-    public void settMarks(String tMarks) {
-        this.tMarks = tMarks;
-    }
-
-    public String getObtMarks() {
-        return obtMarks;
-    }
-
-    public void setObtMarks(String obtMarks) {
-        this.obtMarks = obtMarks;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getExamTime() {
-        return examTime;
-    }
-
-    public void setExamTime(String examTime) {
-        this.examTime = examTime;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setcreateddt(String createddt) {
+        this.createddt = createddt;
     }
     
+    public String getcreatedby() {
+        return this.createdby;
+    }
+
+    public void setcreatedby(String createdby) {
+        this.createdby = createdby;
+    }
 }
