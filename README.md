@@ -129,9 +129,9 @@
 
   1. In base/Connect.java and base/Database.java replace with following
 
-  > static final String USER = "root"
+  > static final String user = "root"
 
-  > static final String PASS = "your_root_sql_password"
+  > static final String password = "your_root_sql_password"
 
     or *add user* with given specifiactions
 
