@@ -19,65 +19,110 @@
   
   This project is comprised of few inportant interfaces as
   
-  ##### 1. Main Window
-
-  ![](/resources/mainframe.jpg){ width=50% }
+  #### 1. Main Window
   
-  # 2. Login Window
-
-  ![](/resources/login.jpg)
+  <p align = "center">
+   <img src="/resources/mainframe.jpg" width="500" height="400"/>
+  </p>
   
-  # 3. Signup Window
-
-  ![](/resources/signup.jpg)
   
-  # 4. Student Window
+  #### 2. Login Window
 
-  ![](/resources/student.jpg)
+  <p align = "center">
+   <img src="/resources/login.jpg" width="500" height="400"/>
+  </p>
   
-  # 5. Choose Exam Window
-
-  ![](/resources/startexam.jpg)
   
-  # 6. Choose Question Window
+  #### 3. Signup Window
 
-  ![](/resources/ques.jpg)
+  <p align = "center">
+   <img src="/resources/signup.jpg" width="500" height="400"/>
+  </p>
   
-  # 7. Attempt Question Window
-
-  ![](/resources/attemptques.jpg)
   
-  # 8. Result Window
+  #### 4. Student Window
 
-  ![](/resources/result.jpg)
+  <p align = "center">
+   <img src="/resources/student.jpg" width="500" height="400"/>
+  </p>
   
-  # 9. Admin Window
-
-  ![](/resources/admin.jpg)
   
-  # 10. Add Exam Window
+  #### 5. Choose Exam Window
 
-  ![](/resources/addexam.jpg)
+  <p align = "center">
+   <img src="/resources/startexam.jpg" width="500" height="400"/>
+  </p>
   
-  # 11. Add Question Window
-
-  ![](/resources/addques.jpg)
   
-  # 12. Myaccount Window
+  #### 6. Choose Question Window
 
-  ![](/resources/myaccount.jpg)
+  <p align = "center">
+   <img src="/resources/ques.jpg" width="500" height="400"/>
+  </p>
   
-  # 13. Edit Profile Window
-
-  ![](/resources/editprofile.jpg)
   
-  # 14. Contact Us Window
+  #### 7. Attempt Question Window
 
-  ![](/resources/contactus.jpg)
+  <p align = "center">
+   <img src="/resources/attemptques.jpg" width="500" height="400"/>
+  </p>
   
-  # 15. About Us Window
+  
+  #### 8. Result Window
 
-  ![](/resources/aboutus.jpg)
+  <p align = "center">
+   <img src="/resources/result.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 9. Admin Window
+
+  <p align = "center">
+   <img src="/resources/admin.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 10. Add Exam Window
+
+  <p align = "center">
+   <img src="/resources/addexam.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 11. Add Question Window
+
+  <p align = "center">
+   <img src="/resources/addques.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 12. Myaccount Window
+
+  <p align = "center">
+   <img src="/resources/myaccount.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 13. Edit Profile Window
+
+  <p align = "center">
+   <img src="/resources/editprofile.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 14. Contact Us Window
+
+  <p align = "center">
+   <img src="/resources/contactus.jpg" width="500" height="400"/>
+  </p>
+  
+  
+  #### 15. About Us Window
+
+  <p align = "center">
+   <img src="/resources/aboutus.jpg" width="500" height="400"/>
+  </p>
+  
 
 
 ### Run the Project
