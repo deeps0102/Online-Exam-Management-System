@@ -21,7 +21,7 @@
   
   ##### 1. Main Window
 
-  ![](/resources/mainframe.jpg = 100*100)
+  ![](/resources/mainframe.jpg = 100x100)
   
   # 2. Login Window
 
