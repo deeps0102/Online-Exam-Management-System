@@ -19,9 +19,9 @@
   
   This project is comprised of few inportant interfaces as
   
-  # 1. Main Window
+  ##### 1. Main Window
 
-  ![](/resources/mainframe.jpg)
+  ![](/resources/mainframe.jpg = 100*100)
   
   # 2. Login Window
 
