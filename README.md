@@ -21,7 +21,7 @@
   
   ##### 1. Main Window
 
-  ![](/resources/mainframe.jpg | width=100)
+  ![](/resources/mainframe.jpg){ width=50% }
   
   # 2. Login Window
 
