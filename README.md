@@ -1,7 +1,7 @@
 # Online Exam Management System-
-- [Run the project](#run-the-project)
 - [Project Structure](#project-structure)
 - [Project](#project)
+- [Run the project](#run-the-project)
 
 
 ### Project Structure
